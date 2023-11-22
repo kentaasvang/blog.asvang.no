@@ -28,5 +28,5 @@ jobs:
         port: ${{ secrets.PI_PORT }}
         user: ${{ secrets.PI_USER }}
         private_key: ${{ secrets.PI_ID_RSA_PRIV_KEY }}
-        source_folder: ./
+        source_folder: ./public
         destination_folder: ${{ secrets.DESTINATION_FOLDER }}
