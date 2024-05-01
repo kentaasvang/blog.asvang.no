@@ -1,1 +1,10 @@
-<h1 class="text-3xl underline font-bold"> Home </h1>
+<script>
+
+	import BlogPostsList from "./BlogPostsList.svelte";
+
+</script>
+
+
+
+<BlogPostsList />
+
