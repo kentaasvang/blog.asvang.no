@@ -1,9 +1,6 @@
 <script>
 
-	const posts = {
-		"Title 1": ["the first paragraph", ""],
-		"Title 2": ["the second paragraph", "img source"],
-	}
+	import src from "$lib/example-1-thumb.png";
 
 </script>
 
@@ -12,39 +9,26 @@
 
 	<div class="md:px-20 sm:px-5 mx-auto">
 	
-		<div class="md:w-1/2 mx-auto">
+		<div class="md:w-1/2">
 
-			<!-- for each post in posts! -->
+			<div class="flex flex-row h-28">
 
-			{#each Object.entries(posts) as [title, [paragraph, img_src]]}
+				<div class="basis-1/4 grayscale hover:grayscale-0">
 
-				<div class="flex flex-row border border-1 border-black">
-
-					<div class="basis-1/4">
-
-						{#if img_src != ""}
-
-							<p>{img_src}</p>
-
-							<img src="{img_src}" alt="">
-
-						{/if}
-
-					</div>
-
-					<div class="basis-3/4">
-
-						<h1 class="font-bold">{title}</h1>
-
-						<p>{paragraph}</p>
-
-					</div>
+					<img class="object-cover h-full" {src} alt="">
 
 				</div>
 
-			{/each}
+				<div class="basis-3/4 border rounded-r-md p-4">
 
-			<!-- end for loop -->
+					<h1 class="font-bold">Title</h1>
+
+					<p>some paragraph</p>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
