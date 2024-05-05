@@ -1,6 +1,6 @@
 <div class="container mx-auto">
 
-	<header class="bg-white pb-10">
+	<header class="pb-10">
 
 		<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 md:px-20 sm:px-5" aria-label="Global">
 
@@ -20,7 +20,7 @@
 		</nav>
 
 
-		<hr class="md:mx-20">
+		<hr class="mx-auto md:px-20 sm:px-5 mx-5">
 	    <!-- TODO Add categories -->
 	  
 	</header>
