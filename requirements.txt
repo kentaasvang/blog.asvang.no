@@ -1,0 +1,2 @@
+Flask==3.0
+tortoise-orm[aio-sqlite]==0.20.1
