@@ -1,11 +1,22 @@
 from models import Post
+import utils
+from starlette.config import Config
 from starlette.applications import Starlette
 from starlette.templating import Jinja2Templates
 from tortoise.contrib.starlette import register_tortoise
 
-DB_URL = "sqlite://dev.db"
 
-app = Starlette() 
+config = Config(".env")
+
+DEBUG = config("DEBUG", cast=bool, default=False)
+DB_URL = config("DB_URL")
+
+
+if DEBUG:
+    utils.add_query_logging()
+
+
+app = Starlette(debug=DEBUG) 
 templates = Jinja2Templates(directory="templates")
 
 
