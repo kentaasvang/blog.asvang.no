@@ -1,16 +1,18 @@
-import asyncio
-from flask import Flask, render_template
-from models import Author
-from db import init, get_posts
-from tortoise import run_async
+from models import Post
+from starlette.applications import Starlette
+from starlette.templating import Jinja2Templates
+from tortoise.contrib.starlette import register_tortoise
 
-run_async(init())
+DB_URL = "sqlite://dev.db"
 
-app = Flask(__name__)
+app = Starlette() 
+templates = Jinja2Templates(directory="templates")
 
 
-@app.route("/")
-def index():
-    posts = get_posts()
-    return render_template("index.html", posts=posts)
+@app.route("/", methods=["GET"])
+async def index(request):
+    posts = await Post.all() 
+    return templates.TemplateResponse(request, "index.html", context={"posts": posts})
 
+
+register_tortoise(app, db_url=DB_URL, modules={"models":["models"]})
