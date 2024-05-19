@@ -11,4 +11,5 @@ class Post(Model):
     id = fields.IntField(pk=True)
     title = fields.CharField(max_length=255)
     body = fields.TextField()
+    thumbnail_url = fields.CharField(max_length=255, null=True)
     
